@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+  <h1>Keep Track of Your Gasoline Consumption</h1>
+  <p>The last time you filled up your mileage was {{ previous_mileage }}.</p>
+  <form method="POST">
+      {# This hidden_tag is a CSRF security feature. #}
+      {{ form.hidden_tag() }}
+      {{ form.current_mileage.label }} {{ form.current_mileage() }}<br>
+      {{ form.gallons_purchased.label }} {{ form.gallons_purchased() }}<br>
+      {{ form.submit() }}
+  </form>
+</div>
+{% endblock %}
